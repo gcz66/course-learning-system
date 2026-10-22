@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: course-learning-system
+  datasource:
+    url: jdbc:mysql://localhost:3306/course_learning?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      # 由 JPA + Hibernate 自动维护表结构
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+# JWT 配置
+jwt:
+  secret: course-learning-system-secret-key-2026
+  # token 有效期（毫秒）：7 天
+  expire: 604800000
+
+logging:
+  level:
+    com.course.learning: debug
